@@ -377,7 +377,7 @@ public class TestTaskTwo extends AbstractTest {
         Method annotationValueMethod = annotation.getClass().getMethod("value");
         String[] values = ((String[]) annotationValueMethod.invoke(annotation));
         assertEquals(1, values.length, "The routing annotation for index must have a value");
-        assertEquals("/", values[0], "The value parameter for the routing annotation must be the empty string");
+        assertEquals("", values[0], "The value parameter for the routing annotation must be the empty string");
 
         // Verify that index calls employerRepository.findAll()
         new Expectations() {{
@@ -483,7 +483,7 @@ public class TestTaskTwo extends AbstractTest {
         Method annotationValueMethod = annotation.getClass().getMethod("value");
         String[] values = ((String[]) annotationValueMethod.invoke(annotation));
         assertEquals(1, values.length, "The routing annotation for index must have a value");
-        assertEquals("/", values[0], "The value parameter for the routing annotation must be the empty string");
+        assertEquals("", values[0], "The value parameter for the routing annotation must be the empty string");
 
         // Verify that index calls skillRepository.findAll()
         new Expectations() {{
@@ -504,7 +504,7 @@ public class TestTaskTwo extends AbstractTest {
     @Test
     public void testNewSkillIsSaved (@Mocked SkillRepository skillRepository, @Mocked Errors errors) throws ClassNotFoundException, NoSuchMethodException, NoSuchFieldException, IllegalAccessException, InvocationTargetException {
         Class skillControllerClass = getClassByName("controllers.SkillController");
-        Method processAddSkillFormMethod = skillControllerClass.getMethod("processAddSkillForm", Skill.class, Errors.class, Model.class);
+        Method processAddSkillFormMethod = skillControllerClass.getMethod("processAddSkillsForm", Skill.class, Errors.class, Model.class);
         Method saveMethod = SkillRepository.class.getMethod("save", Object.class);
 
         Skill skill = new Skill();
