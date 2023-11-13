@@ -56,5 +56,7 @@ public class SkillController {
         } else {
             return "skills/index";
         }
+
     }
 }
+
